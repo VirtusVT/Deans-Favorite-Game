@@ -5,9 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public Tilemap map;
+    [SerializeField] private Tilemap map;
+    [SerializeField] private Camera mainCam;
     [SerializeField] private float movementSpeed;
-    MouseInput mouseInput;
+    
+    private MouseInput mouseInput;
     private Vector3 destination;
 
     private void Awake()
@@ -34,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
     private void MouseClick()
     {
         Vector2 mousePosition = mouseInput.Mouse.MousePosition.ReadValue<Vector2>();
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition = mainCam.ScreenToWorldPoint(mousePosition);
         Vector3Int gridPos = map.WorldToCell(mousePosition);
         if (map.HasTile(gridPos)) destination = mousePosition;
     }
