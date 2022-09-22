@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class FollowPath : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
+    [SerializeField] public float lifes;
     
-    [SerializeField]
-    private Transform[] waypoints;
-    [SerializeField]
-    private float moveSpeed = 2f;
+    [Header("Pathfinding")]
+    [SerializeField] public Transform[] waypoints;
+    [SerializeField] public float moveSpeed = 2f;
+    
     private int waypointIndex = 0;
     private void Start () {
         transform.position = waypoints[waypointIndex].transform.position;
@@ -14,7 +16,6 @@ public class FollowPath : MonoBehaviour {
     private void Update () {
         Move();
     }
-
     private void Move()
     {
         if (waypointIndex <= waypoints.Length - 1)
@@ -27,5 +28,15 @@ public class FollowPath : MonoBehaviour {
                 waypointIndex += 1;
             }
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        lifes -= damage;
+    }
+    
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }
