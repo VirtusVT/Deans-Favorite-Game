@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Root" style="width: 100%; height: 100%; justify-content: space-between;">
+        <ui:VisualElement name="TopUI" style="flex-direction: row; width: 100%; height: 10%;">
+            <ui:Label text="10000" display-tooltip-when-elided="true" name="Resources" style="width: 100%; height: 100%; font-size: 100%;" />
+        </ui:VisualElement>
+        <ui:GroupBox name="RightUI" style="height: 70%; width: 100%; flex-direction: row-reverse; align-items: auto; justify-content: space-between;">
+            <ui:Button text="TurretA" display-tooltip-when-elided="true" name="TurretA" style="font-size: 100%; width: 25%; height: 20%; display: none;" />
+        </ui:GroupBox>
+        <ui:VisualElement name="BottomUI" style="flex-direction: row-reverse; width: 100%; height: 10%; align-items: center; justify-content: space-between;">
+            <ui:Button text="Shop" display-tooltip-when-elided="true" name="ShopButton" style="width: 25%; height: 100%; font-size: 100%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
