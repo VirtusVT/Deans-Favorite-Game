@@ -9,11 +9,13 @@ public class Turret : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D col)
     {
-        enemiesInRange.Add(col.gameObject.GetComponent<Enemy>());
+        if(col.CompareTag("Enemy"))
+            enemiesInRange.Add(col.gameObject.GetComponent<Enemy>());
     }
 
     public virtual void OnTriggerExit2D(Collider2D other)
     {
-        enemiesInRange.Remove(other.gameObject.GetComponent<Enemy>());
+        if(other.CompareTag("Enemy"))
+            enemiesInRange.Remove(other.gameObject.GetComponent<Enemy>());
     }
 }
